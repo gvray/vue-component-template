@@ -1,0 +1,37 @@
+{
+    "name": "@vue-components/build-utils",
+    "version": "1.0.0",
+    "description": "Build utilities for vue-components",
+    "main": "es/index.js",
+    "module": "es/index.js",
+    "types": "es/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./es/index.d.ts",
+            "import": "./es/index.js",
+            "require": "./lib/index.js"
+        }
+    },
+    "scripts": {
+        "build": "pnpm run build:esm && pnpm run build:cjs",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build:cjs": "tsc -p tsconfig.cjs.json"
+    },
+    "dependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "@types/gulp": "^4.0.15",
+        "chalk": "^5.3.0",
+        "consola": "^3.2.3",
+        "fast-glob": "^3.3.2",
+        "fs-extra": "^11.2.0",
+        "gulp": "^4.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "^22.14.0",
+        "rollup": "^4.9.6",
+        "typescript": "~5.8.0"
+    },
+    "peerDependencies": {
+        "typescript": ">=4.0.0"
+    }
+}

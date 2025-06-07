@@ -1,0 +1,142 @@
+// BEM 命名规范 mixins
+$namespace: 'vc' !default;
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+$state-prefix: 'is-' !default;
+
+// 生成 BEM 块名
+@mixin b($block) {
+  $B: $namespace + '-' + $block !global;
+  .#{$B} {
+    @content;
+  }
+}
+
+// 生成 BEM 元素名
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: '';
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + '.' + $B + $element-separator + $unit + ','};
+  }
+
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+  }
+}
+
+// 生成 BEM 修饰符名
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: '';
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector + $selector + $modifier-separator + $unit + ','};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+}
+
+// 生成状态类
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+// 工具函数
+@function hitAllSpecialNestRule($selector) {
+  @return containsModifier($selector) or containsWhenFlag($selector) or
+    containsPseudoClass($selector);
+}
+
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, $modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function containsWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, '.' + $state-prefix) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function containsPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, ':') {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function selectorToString($selector) {
+  $selector: inspect($selector);
+  $selector: str-slice($selector, 2, -2);
+  @return $selector;
+}
+
+// 响应式 mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// 清除浮动
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// 文本省略
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

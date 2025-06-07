@@ -1,0 +1,81 @@
+// CSS 变量定义
+:root {
+  // 颜色系统
+  --vc-color-primary: #409eff;
+  --vc-color-primary-light-3: #79bbff;
+  --vc-color-primary-light-5: #a0cfff;
+  --vc-color-primary-light-7: #c6e2ff;
+  --vc-color-primary-light-8: #d9ecff;
+  --vc-color-primary-light-9: #ecf5ff;
+  --vc-color-primary-dark-2: #337ecc;
+
+  --vc-color-success: #67c23a;
+  --vc-color-warning: #e6a23c;
+  --vc-color-danger: #f56c6c;
+  --vc-color-error: #f56c6c;
+  --vc-color-info: #909399;
+
+  // 文本颜色
+  --vc-text-color-primary: #303133;
+  --vc-text-color-regular: #606266;
+  --vc-text-color-secondary: #909399;
+  --vc-text-color-placeholder: #a8abb2;
+  --vc-text-color-disabled: #c0c4cc;
+
+  // 边框颜色
+  --vc-border-color: #dcdfe6;
+  --vc-border-color-light: #e4e7ed;
+  --vc-border-color-lighter: #ebeef5;
+  --vc-border-color-extra-light: #f2f6fc;
+  --vc-border-color-dark: #d4d7de;
+  --vc-border-color-darker: #cdd0d6;
+
+  // 填充颜色
+  --vc-fill-color: #f0f2f5;
+  --vc-fill-color-light: #f5f7fa;
+  --vc-fill-color-lighter: #fafafa;
+  --vc-fill-color-extra-light: #fafcff;
+  --vc-fill-color-dark: #ebedf0;
+  --vc-fill-color-darker: #e6e8eb;
+  --vc-fill-color-blank: #ffffff;
+
+  // 背景颜色
+  --vc-bg-color: #ffffff;
+  --vc-bg-color-page: #f2f3f5;
+  --vc-bg-color-overlay: #ffffff;
+
+  // 字体
+  --vc-font-size-extra-large: 20px;
+  --vc-font-size-large: 18px;
+  --vc-font-size-medium: 16px;
+  --vc-font-size-base: 14px;
+  --vc-font-size-small: 13px;
+  --vc-font-size-extra-small: 12px;
+
+  --vc-font-family:
+    'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑',
+    Arial, sans-serif;
+
+  // 边框
+  --vc-border-width: 1px;
+  --vc-border-style: solid;
+  --vc-border-radius-base: 4px;
+  --vc-border-radius-small: 2px;
+  --vc-border-radius-round: 20px;
+  --vc-border-radius-circle: 100%;
+
+  // 阴影
+  --vc-box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.04), 0 8px 20px rgba(0, 0, 0, 0.08);
+  --vc-box-shadow-light: 0 0 12px rgba(0, 0, 0, 0.12);
+  --vc-box-shadow-lighter: 0 0 6px rgba(0, 0, 0, 0.12);
+  --vc-box-shadow-dark:
+    0 16px 48px 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.12),
+    0 8px 16px -8px rgba(0, 0, 0, 0.16);
+
+  // 禁用透明度
+  --vc-disabled-opacity: 0.5;
+
+  // 过渡
+  --vc-transition-duration: 0.3s;
+  --vc-transition-duration-fast: 0.2s;
+}

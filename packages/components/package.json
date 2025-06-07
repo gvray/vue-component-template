@@ -1,0 +1,57 @@
+{
+    "name": "@vue-components/components",
+    "version": "1.0.0",
+    "description": "Vue Components library",
+    "main": "src/index.ts",
+    "module": "src/index.ts",
+    "types": "src/index.ts",
+    "exports": {
+        ".": {
+            "types": "./src/index.ts",
+            "import": "./src/index.ts",
+            "require": "./src/index.ts"
+        },
+        "./button": {
+            "types": "./button/index.ts",
+            "import": "./button/index.ts",
+            "require": "./button/index.ts"
+        },
+        "./input": {
+            "types": "./input/index.ts",
+            "import": "./input/index.ts",
+            "require": "./input/index.ts"
+        },
+        "./src/*": {
+            "types": "./src/*.ts",
+            "import": "./src/*"
+        }
+    },
+    "files": [
+        "src",
+        "button",
+        "input",
+        "es",
+        "lib"
+    ],
+    "scripts": {
+        "build": "pnpm run build:esm && pnpm run build:cjs",
+        "build:esm": "vite build --config vite.esm.config.ts",
+        "build:cjs": "vite build --config vite.cjs.config.ts",
+        "dev": "vite build --watch"
+    },
+    "peerDependencies": {
+        "vue": "^3.3.0"
+    },
+    "dependencies": {
+        "@vue-components/utils": "workspace:*",
+        "@vue-components/hooks": "workspace:*",
+        "@vue-components/tokens": "workspace:*"
+    },
+    "devDependencies": {
+        "@vue-components/build-utils": "workspace:*",
+        "vite": "^6.2.4",
+        "vite-plugin-dts": "^3.7.0",
+        "@vitejs/plugin-vue": "^5.2.3",
+        "typescript": "~5.8.0"
+    }
+}

@@ -1,0 +1,11 @@
+packages:
+  # 组件库源码
+  - 'packages/*'
+  # 内部库
+  - 'internal/*'
+  # 组件演练场
+  - 'play'
+  # 文档和演示站点
+  - 'docs'
+  # 排除测试目录
+  - '!**/test/**'

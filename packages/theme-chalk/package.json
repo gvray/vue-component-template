@@ -1,0 +1,25 @@
+{
+    "name": "@vue-components/theme-chalk",
+    "version": "1.0.0",
+    "description": "Vue Components default theme",
+    "main": "lib/index.css",
+    "style": "lib/index.css",
+    "unpkg": "dist/index.css",
+    "jsdelivr": "dist/index.css",
+    "files": [
+        "dist",
+        "lib"
+    ],
+    "scripts": {
+        "build": "gulp build",
+        "dev": "gulp watch"
+    },
+    "devDependencies": {
+        "sass": "^1.69.7",
+        "gulp": "^4.0.2",
+        "gulp-sass": "^5.1.0",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-rename": "^2.0.0"
+    }
+}

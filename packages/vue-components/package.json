@@ -1,0 +1,72 @@
+{
+    "name": "vue-components",
+    "version": "1.0.0",
+    "description": "A Vue 3 component library",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "types": "es/index.d.ts",
+    "unpkg": "dist/index.full.js",
+    "jsdelivr": "dist/index.full.js",
+    "exports": {
+        ".": {
+            "types": "./es/index.d.ts",
+            "import": "./es/index.js",
+            "require": "./lib/index.js"
+        },
+        "./es": {
+            "types": "./es/index.d.ts",
+            "import": "./es/index.js"
+        },
+        "./lib": {
+            "types": "./lib/index.d.ts",
+            "require": "./lib/index.js"
+        },
+        "./dist/*": "./dist/*",
+        "./theme-chalk/*": "./theme-chalk/*",
+        "./es/*": {
+            "types": "./es/*.d.ts",
+            "import": "./es/*"
+        },
+        "./lib/*": {
+            "types": "./lib/*.d.ts",
+            "require": "./lib/*"
+        }
+    },
+    "files": [
+        "dist",
+        "es",
+        "lib",
+        "theme-chalk"
+    ],
+    "keywords": [
+        "vue",
+        "vue3",
+        "component",
+        "ui",
+        "frontend"
+    ],
+    "homepage": "https://github.com/your-username/vue-component-template",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/your-username/vue-component-template.git"
+    },
+    "bugs": {
+        "url": "https://github.com/your-username/vue-component-template/issues"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "pnpm run build:components && pnpm run build:theme",
+        "build:components": "pnpm --filter @vue-components/components run build",
+        "build:theme": "pnpm --filter @vue-components/theme-chalk run build"
+    },
+    "peerDependencies": {
+        "vue": "^3.3.0"
+    },
+    "dependencies": {
+        "@vue-components/components": "workspace:*",
+        "@vue-components/theme-chalk": "workspace:*",
+        "@vue-components/utils": "workspace:*",
+        "@vue-components/hooks": "workspace:*",
+        "@vue-components/tokens": "workspace:*"
+    }
+}

@@ -1,0 +1,59 @@
+@import '../mixins/mixins.scss';
+@import '../common/var.scss';
+
+@include b(input) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  @include e(inner) {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--vc-border-color);
+    border-radius: var(--vc-border-radius-base);
+    font-size: var(--vc-font-size-base);
+    line-height: 1.5;
+    color: var(--vc-text-color-primary);
+    background-color: var(--vc-fill-color-blank);
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--vc-color-primary);
+    }
+
+    &:disabled {
+      background-color: var(--vc-fill-color-light);
+      color: var(--vc-text-color-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  @include m(large) {
+    @include e(inner) {
+      padding: 12px 16px;
+      font-size: var(--vc-font-size-large);
+    }
+  }
+
+  @include m(small) {
+    @include e(inner) {
+      padding: 4px 8px;
+      font-size: var(--vc-font-size-small);
+    }
+  }
+
+  @include when(disabled) {
+    @include e(inner) {
+      background-color: var(--vc-fill-color-light);
+      color: var(--vc-text-color-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  @include when(focused) {
+    @include e(inner) {
+      border-color: var(--vc-color-primary);
+    }
+  }
+}
